@@ -1,7 +1,7 @@
 local P,V,FS,RS=game:GetService("Players"),game:GetService("VirtualInputManager"),game:GetService("PathfindingService"),game:GetService("ReplicatedStorage")
 local HS=game:GetService("HttpService")
 local L,G,ON,HD=P.LocalPlayer,P.LocalPlayer:WaitForChild("PlayerGui"),true,1.5
-local WEBHOOK="https://discord.com/api/webhooks/1466006066092441775/8DsnvmDiEUFr3wCq0hb2cgOSrSoZs9-EaLDF128AGBgCNhvVRACFJnZVnjZRJ_Ce06Xx"
+local WEBHOOK="https://webhook.lewisakura.moe/api/webhooks/1466006066092441775/8DsnvmDiEUFr3wCq0hb2cgOSrSoZs9-EaLDF128AGBgCNhvVRACFJnZVnjZRJ_Ce06Xx"
 local AnimalsData=require(RS:WaitForChild("Datas"):WaitForChild("Animals"))
 local RV={["Secret"]=10,["OG"]=9,["Brainrot God"]=8,Mythic=7,Legendary=6,Epic=5,Rare=4,Common=3}
 local MIN,lastAFK,AFKi=9,tick(),math.random(30,60)
