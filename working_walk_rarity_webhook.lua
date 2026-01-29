@@ -1,6 +1,6 @@
 local P,V,FS,RS=game:GetService("Players"),game:GetService("VirtualInputManager"),game:GetService("PathfindingService"),game:GetService("ReplicatedStorage")
 local HS=game:GetService("HttpService")
-local L,G,ON,HD=P.LocalPlayer,P.LocalPlayer:WaitForChild("PlayerGui"),true,2
+local L,G,ON,HD=P.LocalPlayer,P.LocalPlayer:WaitForChild("PlayerGui"),true,1
 local WEBHOOK="https://discord.com/api/webhooks/1466006066092441775/8DsnvmDiEUFr3wCq0hb2cgOSrSoZs9-EaLDF128AGBgCNhvVRACFJnZVnjZRJ_Ce06Xx"
 local AnimalsData=require(RS:WaitForChild("Datas"):WaitForChild("Animals"))
 local RV={["Secret"]=10,["OG"]=9,["Brainrot God"]=8,Mythic=7,Legendary=6,Epic=5,Rare=4,Common=3}
@@ -11,7 +11,7 @@ local S,F,B,TL=Instance.new("ScreenGui"),Instance.new("Frame"),Instance.new("Tex
 S.Name="R";S.Parent=G;F.Parent=S;F.Size=UDim2.new(0,150,0,50);F.Position=UDim2.new(0,50,0.4,0);F.Active=true;F.Draggable=true;F.BackgroundColor3=Color3.new(0,0,0)
 B.Parent=F;B.Size=UDim2.new(1,-10,0,30);B.Position=UDim2.new(0,5,0,5);B.Text="LEG+: ON";B.BackgroundColor3=Color3.new(0,0.8,0);B.TextColor3=Color3.new(1,1,1)
 TL.Parent=F;TL.Size=UDim2.new(1,-10,0,12);TL.Position=UDim2.new(0,5,0,36);TL.Text="OK";TL.TextColor3=Color3.new(1,1,1);TL.BackgroundTransparency=1;TL.TextSize=10
-B.MouseButton1Click:Connect(function() ON=not ON;B.Text=ON and "LEG+: ON" or "OFF";B.BackgroundColor3=ON and Color3.new(0,0.8,0) or Color3.new(0.5,0,0) end)
+B.Activated:Connect(function() ON=not ON;B.Text=ON and "LEG+: ON" or "OFF";B.BackgroundColor3=ON and Color3.new(0,0.8,0) or Color3.new(0.5,0,0) end)
 local IG,LP,SC,IT={},Vector3.new(),0,0
 local function gR(n) for k,d in pairs(AnimalsData) do if type(d)=="table" and (n:find(k) or n:find(d.DisplayName or "")) then return d.Rarity,RV[d.Rarity] or 0 end end return "?",0 end
 local function sendWH(msg) pcall(function() local data={content="**["..L.Name.."]** "..msg} request({Url=WEBHOOK,Method="POST",Headers={["Content-Type"]="application/json"},Body=HS:JSONEncode(data)}) end) end
@@ -23,6 +23,6 @@ for m,t in pairs(IG) do if tick()-t>15 then IG[m]=nil end end
 for _,v in pairs(BX:GetChildren()) do if v:IsA("Model") and not IG[v] then local rn,rv=gR(v.Name);if rv>=MIN then local Pos=v.PrimaryPart and v.PrimaryPart.Position or v:FindFirstChild("RootPart") and v.RootPart.Position;if Pos then local D=(R.Position-Pos).Magnitude;if rv>BR or (rv==BR and D<BD) then BD=D;BR=rv;BT=v;BP=Pos;BN=v.Name;BRN=rn end end end end end
 if BP then TL.Text="["..BRN.."]"..BN:sub(1,6);local MV=(R.Position-LP).Magnitude;LP=R.Position;if MV<0.2 then SC=SC+1 else SC=0 end
 if SC>6 then pcall(function() local PTH=FS:CreatePath({AgentRadius=4});PTH:ComputeAsync(R.Position,BP);if PTH.Status==Enum.PathStatus.Success then H:MoveTo(PTH:GetWaypoints()[2].Position) else H:MoveTo(R.Position-R.CFrame.LookVector*10) end end);SC=0;return else H:MoveTo(BP) end
-if BD<5 then TL.Text="BUY..";for i=1,10 do if not BT or not BT.Parent then break end;local np=BT.PrimaryPart and BT.PrimaryPart.Position or BP;H:MoveTo(np);V:SendKeyEvent(true,Enum.KeyCode.E,false,game);wait(0.3);V:SendKeyEvent(false,Enum.KeyCode.E,false,game);wait(0.1) end;if not BT or not BT.Parent then IG[BT]=tick();sendWH("Bought: "..BN.." ["..BRN.."]");TL.Text="OK!" else TL.Text="FAIL" end;IT=0;wait(0.2) else IT=0 end
+if BD<6 then IT=IT+1;if IT>25 then H:MoveTo(R.Position-R.CFrame.LookVector*8);IT=0;wait(0.5);return end;H:MoveTo(R.Position);V:SendKeyEvent(true,Enum.KeyCode.E,false,game);wait(HD);V:SendKeyEvent(false,Enum.KeyCode.E,false,game);if BT then IG[BT]=tick();sendWH("Bought: "..BN.." ["..BRN.."]") end;TL.Text="OK!";wait(0.2) else IT=0 end
 else TL.Text="...";SC=0;IT=0 end end) end end end)
 sendWH("Script started!")
