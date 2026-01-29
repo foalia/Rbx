@@ -18,8 +18,12 @@ local RARITY_VALUE = {
     ["Common"] = 3
 }
 
--- CONFIG: Only target Secret (10) and OG (9)
+-- CONFIG: Secret + OG only (9 and above)
 local MIN_RARITY = 9
+
+-- ANTI-AFK CONFIG
+local lastAntiAFK = tick()
+local ANTI_AFK_INTERVAL = math.random(30, 60)
 
 pcall(function() if G:FindFirstChild("SECRET") then G.SECRET:Destroy() end end)
 local S,F,B,TL=Instance.new("ScreenGui"),Instance.new("Frame"),Instance.new("TextButton"),Instance.new("TextLabel")
@@ -42,6 +46,31 @@ local function getRarity(name)
     return "Unknown", 0
 end
 
+-- ANTI-AFK FUNCTION
+local function doAntiAFK(H, R)
+    if tick() - lastAntiAFK > ANTI_AFK_INTERVAL then
+        -- Random jump
+        if H then H.Jump = true end
+        
+        -- Random small movement
+        if R then
+            local randomOffset = Vector3.new(math.random(-3,3), 0, math.random(-3,3))
+            H:MoveTo(R.Position + randomOffset)
+        end
+        
+        -- Random camera rotation
+        pcall(function()
+            local cam = workspace.CurrentCamera
+            cam.CFrame = cam.CFrame * CFrame.Angles(0, math.rad(math.random(-45, 45)), 0)
+        end)
+        
+        -- Reset timer
+        lastAntiAFK = tick()
+        ANTI_AFK_INTERVAL = math.random(30, 60)
+        TL.Text = "Anti-AFK!"
+    end
+end
+
 spawn(function()
  while wait(0.1) do
   if ON then
@@ -49,6 +78,10 @@ spawn(function()
     local C=L.Character;if not C then return end
     local H,R=C:FindFirstChild("Humanoid"),C:FindFirstChild("HumanoidRootPart")
     if not H or not R then return end
+    
+    -- ANTI-AFK CHECK
+    doAntiAFK(H, R)
+    
     local BX=workspace:FindFirstChild("RenderedMovingAnimals")
     if not BX then return end
     local BT,BP,BD,BR,BN,BRN=nil,nil,999,0,"",""
@@ -94,3 +127,5 @@ spawn(function()
   end
  end
 end)
+
+print("Secret/OG Hunter v2.0 with Anti-AFK loaded!")
