@@ -8,7 +8,7 @@
 
 -- === CONFIGURATION ===
 -- Replace with your actual GitHub raw URL after creating repo
-local SCRIPT_URL = "https://raw.githubusercontent.com/YOUR_USERNAME/brainrot-scripts/main/working_walk_secret.lua"
+local SCRIPT_URL = "https://raw.githubusercontent.com/foalia/Rbx/main/working_walk_secret.lua"
 
 -- === LOADER ===
 local success, err = pcall(function()
