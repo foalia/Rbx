@@ -29,8 +29,8 @@ if BD<5 then TL.Text="BUY..";local bought=false
 -- Method 1: fireproximityprompt
 local pp=BT:FindFirstChildWhichIsA("ProximityPrompt",true)
 if pp then pcall(function() fireproximityprompt(pp) end);wait(0.3);if not BT or not BT.Parent then bought=true end end
--- Method 2: fallback ke E key kalau pp gagal
-if not bought and BT and BT.Parent then for i=1,5 do if not BT or not BT.Parent then bought=true;break end;local np=BT.PrimaryPart and BT.PrimaryPart.Position or BP;H:MoveTo(np);V:SendKeyEvent(true,Enum.KeyCode.E,false,game);wait(0.4);V:SendKeyEvent(false,Enum.KeyCode.E,false,game);wait(0.1) end;if not BT or not BT.Parent then bought=true end end
+-- Method 2: fallback ke E key HOLD sambil follow
+if not bought and BT and BT.Parent then V:SendKeyEvent(true,Enum.KeyCode.E,false,game);for i=1,20 do if not BT or not BT.Parent then bought=true;break end;local np=BT.PrimaryPart and BT.PrimaryPart.Position or BP;H:MoveTo(np);wait(0.1) end;V:SendKeyEvent(false,Enum.KeyCode.E,false,game);if not BT or not BT.Parent then bought=true end end
 -- Webhook hanya kalau beneran bought
 if bought then sendWH("Bought: "..BN.." ["..BRN.."]");TL.Text="OK!" else TL.Text="MISS" end
 wait(0.2)
