@@ -1,21 +1,22 @@
 --[[
-  BRAINROT LOADER
-  Paste this 2-line script into your executor.
-  It will fetch the latest version from GitHub.
+  STEAL A BRAINROT LOADER
   
-  UPDATE THE URL BELOW WITH YOUR GITHUB RAW URL!
+  Available scripts:
+  - rarity      : Legendary+ (without webhook)
+  - rarity_wh   : Legendary+ (with Discord webhook)
+  - secret      : Secret/OG only (without webhook)
+  - secret_wh   : Secret/OG only (with Discord webhook)
+  
+  Usage: Change SCRIPT_TYPE below
 ]]
 
--- === CONFIGURATION ===
--- Replace with your actual GitHub raw URL after creating repo
-local SCRIPT_URL = "https://raw.githubusercontent.com/foalia/Rbx/main/working_walk_secret.lua"
+local SCRIPT_TYPE = "rarity" -- Options: "rarity", "rarity_wh", "secret", "secret_wh"
 
--- === LOADER ===
-local success, err = pcall(function()
-    loadstring(game:HttpGet(SCRIPT_URL .. "?t=" .. os.time()))()
-end)
+local URLS = {
+    rarity = "https://raw.githubusercontent.com/foalia/Rbx/main/working_walk_rarity.lua",
+    rarity_wh = "https://raw.githubusercontent.com/foalia/Rbx/main/working_walk_rarity_webhook.lua",
+    secret = "https://raw.githubusercontent.com/foalia/Rbx/main/working_walk_secret.lua",
+    secret_wh = "https://raw.githubusercontent.com/foalia/Rbx/main/working_walk_secret_webhook.lua"
+}
 
-if not success then
-    warn("Failed to load script: " .. tostring(err))
-    warn("Check if URL is correct and repo is PUBLIC")
-end
+loadstring(game:HttpGet(URLS[SCRIPT_TYPE] .. "?t=" .. os.time()))()
