@@ -1,7 +1,7 @@
 local P,V,FS,RS=game:GetService("Players"),game:GetService("VirtualInputManager"),game:GetService("PathfindingService"),game:GetService("ReplicatedStorage")
 local HS=game:GetService("HttpService")
 local L,G,ON,HD=P.LocalPlayer,P.LocalPlayer:WaitForChild("PlayerGui"),true,1.5
-local WEBHOOK="https://webhook.lewisakura.moe/api/webhooks/1466006066092441775/8DsnvmDiEUFr3wCq0hb2cgOSrSoZs9-EaLDF128AGBgCNhvVRACFJnZVnjZRJ_Ce06Xx"
+local WEBHOOK="https://discord.com/api/webhooks/1466006066092441775/8DsnvmDiEUFr3wCq0hb2cgOSrSoZs9-EaLDF128AGBgCNhvVRACFJnZVnjZRJ_Ce06Xx"
 local AnimalsData=require(RS:WaitForChild("Datas"):WaitForChild("Animals"))
 local RV={["Secret"]=10,["OG"]=9,["Brainrot God"]=8,Mythic=7,Legendary=6,Epic=5,Rare=4,Common=3}
 local MIN,lastAFK,AFKi=9,tick(),math.random(30,60)
@@ -23,6 +23,6 @@ for m,t in pairs(IG) do if tick()-t>10 then IG[m]=nil end end
 for _,v in pairs(BX:GetChildren()) do if v:IsA("Model") and not IG[v] then local rn,rv=gR(v.Name);if rv>=MIN then local Pos=v.PrimaryPart and v.PrimaryPart.Position or v:FindFirstChild("RootPart") and v.RootPart.Position;if Pos then local D=(R.Position-Pos).Magnitude;if rv>BR or (rv==BR and D<BD) then BD=D;BR=rv;BT=v;BP=Pos;BN=v.Name;BRN=rn end end end end end
 if BP then TL.Text="["..BRN.."]"..BN:sub(1,6);local MV=(R.Position-LP).Magnitude;LP=R.Position;if MV<0.2 then SC=SC+1 else SC=0 end
 if SC>8 then H.Jump=true;H:MoveTo(R.Position+R.CFrame.RightVector*math.random(-10,10));SC=0;wait(0.3);return else H:MoveTo(BP) end
-if BD<5 then TL.Text="BUY..";V:SendKeyEvent(true,Enum.KeyCode.E,false,game);for i=1,20 do if not BT or not BT.Parent then break end;local np=BT.PrimaryPart and BT.PrimaryPart.Position or BP;H:MoveTo(np);wait(0.1) end;V:SendKeyEvent(false,Enum.KeyCode.E,false,game);IG[BT]=tick();if not BT or not BT.Parent then TL.Text="OK!";sendWH("SECRET: "..BN.." ["..BRN.."]") else TL.Text="MISS" end;wait(0.2);return end
+if BD<5 then TL.Text="BUY..";V:SendKeyEvent(true,Enum.KeyCode.E,false,game);for i=1,20 do if not BT or not BT.Parent then break end;local np=BT.PrimaryPart and BT.PrimaryPart.Position or BP;H:MoveTo(np);wait(0.1) end;V:SendKeyEvent(false,Enum.KeyCode.E,false,game);IG[BT]=tick();local st=not BT or not BT.Parent;TL.Text=st and "OK!" or "MISS";sendWH((st and "GOT: " or "TRY: ")..BN.." ["..BRN.."]");wait(0.2);return end
 else TL.Text="...";SC=0 end end) end end end)
 sendWH("Script started!")
