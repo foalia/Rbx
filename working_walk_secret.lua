@@ -9,7 +9,7 @@ local S,F,B,TL=Instance.new("ScreenGui"),Instance.new("Frame"),Instance.new("Tex
 S.Name="S";S.Parent=G;F.Parent=S;F.Size=UDim2.new(0,150,0,50);F.Position=UDim2.new(0,50,0.4,0);F.Active=true;F.Draggable=true;F.BackgroundColor3=Color3.fromRGB(100,0,150)
 B.Parent=F;B.Size=UDim2.new(1,-10,0,30);B.Position=UDim2.new(0,5,0,5);B.Text="SEC: ON";B.BackgroundColor3=Color3.new(1,0,1);B.TextColor3=Color3.new(1,1,1)
 TL.Parent=F;TL.Size=UDim2.new(1,-10,0,12);TL.Position=UDim2.new(0,5,0,36);TL.Text="OK";TL.TextColor3=Color3.new(1,1,1);TL.BackgroundTransparency=1;TL.TextSize=10
-B.Activated:Connect(function() ON=not ON;B.Text=ON and "SEC: ON" or "OFF";B.BackgroundColor3=ON and Color3.new(1,0,1) or Color3.new(0.5,0,0) end)
+B.MouseButton1Click:Connect(function() ON=not ON;B.Text=ON and "SEC: ON" or "OFF";B.BackgroundColor3=ON and Color3.new(1,0,1) or Color3.new(0.5,0,0) end)
 local IG,LP,SC,IT={},Vector3.new(),0,0
 local function gR(n) for k,d in pairs(AnimalsData) do if type(d)=="table" and (n:find(k) or n:find(d.DisplayName or "")) then return d.Rarity,RV[d.Rarity] or 0 end end return "?",0 end
 spawn(function() while wait(0.1) do if ON then pcall(function()

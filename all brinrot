@@ -1,0 +1,1432 @@
+-- Decompiled with Konstant V2.1, a fast Luau decompiler made in Luau by plusgiant5 (https://discord.gg/brNTY8nX8t)
+-- Decompiled on 2026-01-28 12:06:56
+-- Luau version 6, Types version 3
+-- Time taken: 0.093201 seconds
+
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local LuckyBlocks = require(ReplicatedStorage:WaitForChild("Datas").LuckyBlocks)
+local Updates_upvr = require(ReplicatedStorage:WaitForChild("Shared").Updates)
+local module = {
+	["Noobini Pizzanini"] = {
+		DisplayName = "Noobini Pizzanini";
+		Rarity = "Common";
+		Price = 25;
+		Generation = 1;
+		RoadWeight = 100;
+	};
+	["Liril\xEC Laril\xE0"] = {
+		DisplayName = "Liril\xEC Laril\xE0";
+		Rarity = "Common";
+		Price = 250;
+		Generation = 3;
+		RoadWeight = 55;
+	};
+	["Tim Cheese"] = {
+		DisplayName = "Tim Cheese";
+		Rarity = "Common";
+		Price = 500;
+		Generation = 5;
+		RoadWeight = 50;
+	};
+	Fluriflura = {
+		DisplayName = "Fluriflura";
+		Rarity = "Common";
+		Price = 750;
+		Generation = 7;
+		RoadWeight = 45;
+	};
+	["Svinina Bombardino"] = {
+		DisplayName = "Svinina Bombardino";
+		Rarity = "Common";
+		Price = 1250;
+		Generation = 10;
+		RoadWeight = 40;
+	};
+	["Talpa Di Fero"] = {
+		DisplayName = "Talpa Di Fero";
+		Rarity = "Common";
+		Price = 1000;
+		Generation = 9;
+		RoadWeight = 43;
+	};
+	["Pipi Kiwi"] = {
+		DisplayName = "Pipi Kiwi";
+		Rarity = "Common";
+		Price = 1500;
+		Generation = 13;
+		RoadWeight = 37;
+	};
+	["Pipi Corni"] = {
+		DisplayName = "Pipi Corni";
+		Rarity = "Common";
+		Price = 1750;
+		Generation = 14;
+	};
+	["Raccooni Jandelini"] = {
+		DisplayName = "Raccooni Jandelini";
+		Rarity = "Common";
+		Price = 1350;
+		Generation = 12;
+	};
+	Tartaragno = {
+		DisplayName = "Tartaragno";
+		Rarity = "Common";
+		Price = 1500;
+		Generation = 13;
+	};
+	["Noobini Santanini"] = {
+		DisplayName = "Noobini Santanini";
+		Rarity = "Common";
+		Price = 1300;
+		Generation = 11;
+	};
+	["Trippi Troppi"] = {
+		DisplayName = "Trippi Troppi";
+		Rarity = "Rare";
+		Price = 2000;
+		Generation = 15;
+		RoadWeight = 30;
+	};
+	["Gangster Footera"] = {
+		DisplayName = "Gangster Footera";
+		Rarity = "Rare";
+		Price = 4000;
+		Generation = 30;
+		RoadWeight = 25;
+	};
+	["Boneca Ambalabu"] = {
+		DisplayName = "Boneca Ambalabu";
+		Rarity = "Rare";
+		Price = 5000;
+		Generation = 40;
+		RoadWeight = 20;
+	};
+	["Ta Ta Ta Ta Sahur"] = {
+		DisplayName = "Ta Ta Ta Ta Sahur";
+		Rarity = "Rare";
+		Price = 7500;
+		Generation = 55;
+		RoadWeight = 17;
+	};
+	["Tric Trac Baraboom"] = {
+		DisplayName = "Tric Trac Baraboom";
+		Rarity = "Rare";
+		Price = 9000;
+		Generation = 65;
+		RoadWeight = 15;
+	};
+	["Bandito Bobritto"] = {
+		DisplayName = "Bandito Bobritto";
+		Rarity = "Rare";
+		Price = 4500;
+		Generation = 35;
+		RoadWeight = 22.5;
+	};
+	["Cacto Hipopotamo"] = {
+		DisplayName = "Cacto Hipopotamo";
+		Rarity = "Rare";
+		Price = 6500;
+		Generation = 50;
+		RoadWeight = 18.5;
+	};
+	["Pipi Avocado"] = {
+		DisplayName = "Pipi Avocado";
+		Rarity = "Rare";
+		Price = 9500;
+		Generation = 70;
+	};
+	["Pinealotto Fruttarino"] = {
+		DisplayName = "Pinealotto Fruttarino";
+		Rarity = "Rare";
+		Price = 9750;
+		Generation = 75;
+	};
+	["Cupcake Koala"] = {
+		DisplayName = "Cupcake Koala";
+		Rarity = "Rare";
+		Price = 8000;
+		Generation = 60;
+	};
+	["Frogo Elfo"] = {
+		DisplayName = "Frogo Elfo";
+		Rarity = "Rare";
+		Price = 9250;
+		Generation = 67;
+	};
+	["Cappuccino Assassino"] = {
+		DisplayName = "Cappuccino Assassino";
+		Rarity = "Epic";
+		Price = 10000;
+		Generation = 75;
+		RoadWeight = 13;
+	};
+	["Brr Brr Patapim"] = {
+		DisplayName = "Brr Brr Patapim";
+		Rarity = "Epic";
+		Price = 15000;
+		Generation = 100;
+		RoadWeight = 10;
+	};
+	["Trulimero Trulicina"] = {
+		DisplayName = "Trulimero Trulicina";
+		Rarity = "Epic";
+		Price = 20000;
+		Generation = 125;
+		RoadWeight = 7;
+	};
+	["Bananita Dolphinita"] = {
+		DisplayName = "Bananita Dolphinita";
+		Rarity = "Epic";
+		Price = 25000;
+		Generation = 150;
+		RoadWeight = 5;
+	};
+	["Brri Brri Bicus Dicus Bombicus"] = {
+		DisplayName = "Brri Brri Bicus Dicus Bombicus";
+		Rarity = "Epic";
+		Price = 30000;
+		Generation = 175;
+		RoadWeight = 3.5;
+	};
+	["Bambini Crostini"] = {
+		DisplayName = "Bambini Crostini";
+		Rarity = "Epic";
+		Price = 22500;
+		Generation = 135;
+		RoadWeight = 6;
+	};
+	["Perochello Lemonchello"] = {
+		DisplayName = "Perochello Lemonchello";
+		Rarity = "Epic";
+		Price = 27500;
+		Generation = 160;
+		RoadWeight = 4.5;
+	};
+	["Avocadini Guffo"] = {
+		DisplayName = "Avocadini Guffo";
+		Rarity = "Epic";
+		Price = 35000;
+		Generation = 225;
+		RoadWeight = 3;
+	};
+	["Salamino Penguino"] = {
+		DisplayName = "Salamino Penguino";
+		Rarity = "Epic";
+		Price = 40000;
+		Generation = 250;
+		RoadWeight = 2.5;
+	};
+	["Ti Ti Ti Sahur"] = {
+		DisplayName = "Ti Ti Ti Sahur";
+		Rarity = "Epic";
+		Price = 37500;
+		Generation = 225;
+	};
+	["Penguino Cocosino"] = {
+		DisplayName = "Penguino Cocosino";
+		Rarity = "Epic";
+		Price = 45000;
+		Generation = 300;
+	};
+	["Avocadini Antilopini"] = {
+		DisplayName = "Avocadini Antilopini";
+		Rarity = "Epic";
+		Price = 17500;
+		Generation = 115;
+		RoadWeight = 8.5;
+	};
+	["Bandito Axolito"] = {
+		DisplayName = "Bandito Axolito";
+		Rarity = "Epic";
+		Price = 12500;
+		Generation = 90;
+	};
+	["Malame Amarele"] = {
+		DisplayName = "Malame Amarele";
+		Rarity = "Epic";
+		Price = 23500;
+		Generation = 140;
+	};
+	["Mangolini Parrocini"] = {
+		DisplayName = "Mangolini Parrocini";
+		Rarity = "Epic";
+		Price = 38500;
+		Generation = 235;
+	};
+	["Mummio Rappitto"] = {
+		DisplayName = "Mummio Rappitto";
+		Rarity = "Epic";
+		Price = 47500;
+		Generation = 325;
+	};
+	["Frogato Pirato"] = {
+		DisplayName = "Frogato Pirato";
+		Rarity = "Epic";
+		Price = 39000;
+		Generation = 240;
+	};
+	["Wombo Rollo"] = {
+		DisplayName = "Wombo Rollo";
+		Rarity = "Epic";
+		Price = 42500;
+		Generation = 275;
+		RoadWeight = 1.75;
+	};
+	["Doi Doi Do"] = {
+		DisplayName = "Doi Doi Do";
+		Rarity = "Epic";
+		Price = 41000;
+		Generation = 260;
+	};
+	["Penguin Tree"] = {
+		DisplayName = "Penguin Tree";
+		Rarity = "Epic";
+		Price = 42000;
+		Generation = 270;
+	};
+	["Burbaloni Loliloli"] = {
+		DisplayName = "Burbaloni Loliloli";
+		Rarity = "Legendary";
+		Price = 35000;
+		Generation = 200;
+		RoadWeight = 1;
+	};
+	["Chimpanzini Bananini"] = {
+		DisplayName = "Chimpanzini Bananini";
+		Rarity = "Legendary";
+		Price = 50000;
+		Generation = 300;
+		RoadWeight = 0.75;
+	};
+	["Ballerina Cappuccina"] = {
+		DisplayName = "Ballerina Cappuccina";
+		Rarity = "Legendary";
+		Price = 100000;
+		Generation = 500;
+		RoadWeight = 0.55;
+	};
+	["Chef Crabracadabra"] = {
+		DisplayName = "Chef Crabracadabra";
+		Rarity = "Legendary";
+		Price = 150000;
+		Generation = 600;
+		RoadWeight = 0.5;
+	};
+	["Glorbo Fruttodrillo"] = {
+		DisplayName = "Glorbo Fruttodrillo";
+		Rarity = "Legendary";
+		Price = 200000;
+		Generation = 750;
+		RoadWeight = 0.45;
+	};
+	["Blueberrinni Octopusini"] = {
+		DisplayName = "Blueberrinni Octopusini";
+		Rarity = "Legendary";
+		Price = 250000;
+		Generation = 1000;
+		RoadWeight = 0.4;
+	};
+	["Lionel Cactuseli"] = {
+		DisplayName = "Lionel Cactuseli";
+		Rarity = "Legendary";
+		Price = 175000;
+		Generation = 650;
+		RoadWeight = 0.47;
+	};
+	["Pandaccini Bananini"] = {
+		DisplayName = "Pandaccini Bananini";
+		Rarity = "Legendary";
+		Price = 300000;
+		Generation = 1250;
+		RoadWeight = 0.35;
+	};
+	["Strawberrelli Flamingelli"] = {
+		DisplayName = "Strawberrelli Flamingelli";
+		Rarity = "Legendary";
+		Price = 275000;
+		Generation = 1150;
+		RoadWeight = 0.37;
+	};
+	["Cocosini Mama"] = {
+		DisplayName = "Cocosini Mama";
+		Rarity = "Legendary";
+		Price = 285000;
+		Generation = 1200;
+	};
+	["Pi Pi Watermelon"] = {
+		DisplayName = "Pi Pi Watermelon";
+		Rarity = "Legendary";
+		Price = 315000;
+		Generation = 1300;
+	};
+	["Sigma Boy"] = {
+		DisplayName = "Sigma Boy";
+		Rarity = "Legendary";
+		Price = 325000;
+		Generation = 1350;
+		RoadWeight = 0.3;
+	};
+	["Pipi Potato"] = {
+		DisplayName = "Pipi Potato";
+		Rarity = "Legendary";
+		Price = 265000;
+		Generation = 1100;
+		RoadWeight = 0.385;
+	};
+	["Quivioli Ameleonni"] = {
+		DisplayName = "Quivioli Ameleonni";
+		Rarity = "Legendary";
+		Price = 225000;
+		Generation = 900;
+		RoadWeight = 0.425;
+	};
+	["Tirilikalika Tirilikalako"] = {
+		DisplayName = "Tirilikalika Tirilikalako";
+		Rarity = "Legendary";
+		Price = 75000;
+		Generation = 450;
+	};
+	["Caramello Filtrello"] = {
+		DisplayName = "Caramello Filtrello";
+		Rarity = "Legendary";
+		Price = 255000;
+		Generation = 1050;
+	};
+	["Signore Carapace"] = {
+		DisplayName = "Signore Carapace";
+		Rarity = "Legendary";
+		Price = 320000;
+		Generation = 1325;
+	};
+	["Sigma Girl"] = {
+		DisplayName = "Sigma Girl";
+		Rarity = "Legendary";
+		Price = 340000;
+		Generation = 1800;
+	};
+	Quackula = {
+		DisplayName = "Quackula";
+		Rarity = "Legendary";
+		Price = 310000;
+		Generation = 1275;
+	};
+	["Buho de Fuego"] = {
+		DisplayName = "Buho de Fuego";
+		Rarity = "Legendary";
+		Price = 345000;
+		Generation = 1850;
+	};
+	["Clickerino Crabo"] = {
+		DisplayName = "Clickerino Crabo";
+		Rarity = "Legendary";
+		Price = 250000;
+		Generation = 1000;
+	};
+	Puffaball = {
+		DisplayName = "Puffaball";
+		Rarity = "Legendary";
+		Price = 330000;
+		Generation = 1500;
+	};
+	["Chocco Bunny"] = {
+		DisplayName = "Chocco Bunny";
+		Rarity = "Legendary";
+		Price = 327500;
+		Generation = 1400;
+	};
+	["Sealo Regalo"] = {
+		DisplayName = "Sealo Regalo";
+		Rarity = "Legendary";
+		Price = 342500;
+		Generation = 1825;
+	};
+	["Frigo Camelo"] = {
+		DisplayName = "Frigo Camelo";
+		Rarity = "Mythic";
+		Price = 350000;
+		Generation = 1900;
+		RoadWeight = 0.2;
+	};
+	["Orangutini Ananassini"] = {
+		DisplayName = "Orangutini Ananassini";
+		Rarity = "Mythic";
+		Price = 400000;
+		Generation = 2000;
+		RoadWeight = 0.18;
+	};
+	["Bombardiro Crocodilo"] = {
+		DisplayName = "Bombardiro Crocodilo";
+		Rarity = "Mythic";
+		Price = 500000;
+		Generation = 2500;
+		RoadWeight = 0.15;
+	};
+	["Bombombini Gusini"] = {
+		DisplayName = "Bombombini Gusini";
+		Rarity = "Mythic";
+		Price = 1000000;
+		Generation = 5000;
+		RoadWeight = 0.14;
+	};
+	["Rhino Toasterino"] = {
+		DisplayName = "Rhino Toasterino";
+		Rarity = "Mythic";
+		Price = 450000;
+		Generation = 2150;
+		RoadWeight = 0.16;
+	};
+	["Cavallo Virtuoso"] = {
+		DisplayName = "Cavallo Virtuoso";
+		Rarity = "Mythic";
+		Price = 2500000;
+		Generation = 7500;
+		RoadWeight = 0.1;
+	};
+	["Spioniro Golubiro"] = {
+		DisplayName = "Spioniro Golubiro";
+		Rarity = "Mythic";
+		Price = 750000;
+		Generation = 3500;
+	};
+	["Zibra Zubra Zibralini"] = {
+		DisplayName = "Zibra Zubra Zibralini";
+		Rarity = "Mythic";
+		Price = 1500000;
+		Generation = 6000;
+	};
+	["Tigrilini Watermelini"] = {
+		DisplayName = "Tigrilini Watermelini";
+		Rarity = "Mythic";
+		Price = 1750000;
+		Generation = 6500;
+	};
+	["Gorillo Watermelondrillo"] = {
+		DisplayName = "Gorillo Watermelondrillo";
+		Rarity = "Mythic";
+		Price = 3000000;
+		Generation = 8000;
+		RoadWeight = 0.08;
+	};
+	Avocadorilla = {
+		DisplayName = "Avocadorilla";
+		Rarity = "Mythic";
+		Price = 2000000;
+		Generation = 7000;
+	};
+	["Ganganzelli Trulala"] = {
+		DisplayName = "Ganganzelli Trulala";
+		Rarity = "Mythic";
+		Price = 3750000;
+		Generation = 9000;
+		IgnoreIndexCounter = true;
+	};
+	["Tob Tobi Tobi"] = {
+		DisplayName = "Tob Tobi Tobi";
+		Rarity = "Mythic";
+		Price = 3250000;
+		Generation = 8500;
+		IgnoreIndexCounter = true;
+	};
+	["Te Te Te Sahur"] = {
+		DisplayName = "Te Te Te Sahur";
+		Rarity = "Mythic";
+		Price = 4000000;
+		Generation = 9500;
+		RoadWeight = 0.07;
+	};
+	["Tracoducotulu Delapeladustuz"] = {
+		DisplayName = "Tracoducotulu Delapeladustuz";
+		Rarity = "Mythic";
+		Price = 4250000;
+		Generation = 12000;
+		RoadWeight = 0.06;
+	};
+	Lerulerulerule = {
+		DisplayName = "Lerulerulerule";
+		Rarity = "Mythic";
+		Price = 3500000;
+		Generation = 8750;
+		RoadWeight = 0.75;
+	};
+	Carloo = {
+		DisplayName = "Carloo";
+		Rarity = "Mythic";
+		Price = 4500000;
+		Generation = 13500;
+		IgnoreIndexCounter = true;
+	};
+	["Carrotini Brainini"] = {
+		DisplayName = "Carrotini Brainini";
+		Rarity = "Mythic";
+		Price = 4750000;
+		Generation = 15000;
+	};
+	["Brutto Gialutto"] = {
+		DisplayName = "Brutto Gialutto";
+		Rarity = "Mythic";
+		Price = 600000;
+		Generation = 3000;
+	};
+	["Gorillo Subwoofero"] = {
+		DisplayName = "Gorillo Subwoofero";
+		Rarity = "Mythic";
+		Price = 2750000;
+		Generation = 7750;
+	};
+	["Los Noobinis"] = {
+		DisplayName = "Los Noobinis";
+		Rarity = "Mythic";
+		Price = 4350000;
+		Generation = 12500;
+	};
+	["Rhino Helicopterino"] = {
+		DisplayName = "Rhino Helicopterino";
+		Rarity = "Mythic";
+		Price = 4100000;
+		Generation = 11000;
+	};
+	["Elefanto Frigo"] = {
+		DisplayName = "Elefanto Frigo";
+		Rarity = "Mythic";
+		Price = 4600000;
+		Generation = 14000;
+	};
+	["Toiletto Focaccino"] = {
+		DisplayName = "Toiletto Focaccino";
+		Rarity = "Mythic";
+		Price = 4850000;
+		Generation = 16000;
+		RoadWeight = 0.05;
+	};
+	["Cachorrito Melonito"] = {
+		DisplayName = "Cachorrito Melonito";
+		Rarity = "Mythic";
+		Price = 4400000;
+		Generation = 13000;
+		RoadWeight = 0.055;
+	};
+	["Bananito Bandito"] = {
+		DisplayName = "Bananito Bandito";
+		Rarity = "Mythic";
+		Price = 4900000;
+		Generation = 16500;
+	};
+	["Magi Ribbitini"] = {
+		DisplayName = "Magi Ribbitini";
+		Rarity = "Mythic";
+		Price = 4200000;
+		Generation = 11500;
+	};
+	["Jacko Spaventosa"] = {
+		DisplayName = "Jacko Spaventosa";
+		Rarity = "Mythic";
+		Price = 4875000;
+		Generation = 16250;
+	};
+	["Stoppo Luminino"] = {
+		DisplayName = "Stoppo Luminino";
+		Rarity = "Mythic";
+		Price = 3000000;
+		Generation = 8000;
+	};
+	["Centrucci Nuclucci"] = {
+		DisplayName = "Centrucci Nuclucci";
+		Rarity = "Mythic";
+		Price = 4800000;
+		Generation = 15500;
+	};
+	["Jingle Jingle Sahur"] = {
+		DisplayName = "Jingle Jingle Sahur";
+		Rarity = "Mythic";
+		Price = 4300000;
+		Generation = 12250;
+	};
+	["Tree Tree Tree Sahur"] = {
+		DisplayName = "Tree Tree Tree Sahur";
+		Rarity = "Mythic";
+		Price = 4950000;
+		Generation = 17000;
+	};
+}
+local tbl_10 = {
+	DisplayName = "Spongini Quackini";
+	Rarity = "Mythic";
+	Price = 4400000;
+	Generation = 13000;
+}
+local function IsEnabled() -- Line 778
+	--[[ Upvalues[1]:
+		[1]: Updates_upvr (readonly)
+	]]
+	return Updates_upvr.Methods.IsEnabled("Update-01/24/2026")
+end
+tbl_10.IsEnabled = IsEnabled
+module["Spongini Quackini"] = tbl_10
+local tbl = {
+	DisplayName = "Fizzy Soda";
+	Rarity = "Mythic";
+	Price = 4975000;
+	Generation = 17250;
+}
+local function IsEnabled() -- Line 788
+	--[[ Upvalues[1]:
+		[1]: Updates_upvr (readonly)
+	]]
+	return Updates_upvr.Methods.IsEnabled("Update-01/24/2026")
+end
+tbl.IsEnabled = IsEnabled
+module["Fizzy Soda"] = tbl
+module["Chihuanini Taconini"] = {
+	DisplayName = "Chihuanini Taconini";
+	Rarity = "Brainrot God";
+	Price = 8500000;
+	Generation = 45000;
+	IgnoreIndexCounter = true;
+	SpawnVFX = "Taco";
+	SpawnDelay = 3;
+}
+module["Cocofanto Elefanto"] = {
+	DisplayName = "Cocofanto Elefanto";
+	Rarity = "Brainrot God";
+	Price = 5000000;
+	Generation = 17500;
+	RoadWeight = 0.05;
+}
+module["Tralalero Tralala"] = {
+	DisplayName = "Tralalero Tralala";
+	Rarity = "Brainrot God";
+	Price = 10000000;
+	Generation = 50000;
+	RoadWeight = 0.01;
+}
+module["Odin Din Din Dun"] = {
+	DisplayName = "Odin Din Din Dun";
+	Rarity = "Brainrot God";
+	Price = 15000000;
+	Generation = 75000;
+	RoadWeight = 0.007;
+}
+module["Girafa Celestre"] = {
+	DisplayName = "Girafa Celestre";
+	Rarity = "Brainrot God";
+	Price = 7500000;
+	Generation = 20000;
+	RoadWeight = 0.03;
+}
+module["Trenostruzzo Turbo 3000"] = {
+	DisplayName = "Trenostruzzo Turbo 3000";
+	Rarity = "Brainrot God";
+	Price = 25000000;
+	Generation = 150000;
+	RoadWeight = 0.005;
+}
+module.Matteo = {
+	DisplayName = "Matteo";
+	Rarity = "Brainrot God";
+	Price = 10000000;
+	Generation = 50000;
+	IgnoreIndexCounter = true;
+	SpawnVFX = "Matteo";
+	SpawnDelay = 3;
+}
+module["Tigroligre Frutonni"] = {
+	DisplayName = "Tigroligre Frutonni";
+	Rarity = "Brainrot God";
+	Price = 14000000;
+	Generation = 60000;
+}
+module["Orcalero Orcala"] = {
+	DisplayName = "Orcalero Orcala";
+	Rarity = "Brainrot God";
+	Price = 25000000;
+	Generation = 100000;
+}
+module["Unclito Samito"] = {
+	DisplayName = "Unclito Samito";
+	Rarity = "Brainrot God";
+	Price = 20000000;
+	Generation = 75000;
+	IgnoreIndexCounter = true;
+}
+module["Gattatino Nyanino"] = {
+	DisplayName = "Gattatino Nyanino";
+	Rarity = "Brainrot God";
+	Price = 7500000;
+	Generation = 35000;
+	IgnoreIndexCounter = true;
+	SpawnVFX = "Gattatino Nyanino";
+	SpawnDelay = 9;
+}
+module["Espresso Signora"] = {
+	DisplayName = "Espresso Signora";
+	Rarity = "Brainrot God";
+	Price = 25000000;
+	G
+
+
+    
+
+    game:GetService("ReplicatedStorage").Animations.Animals
+
+    == MYTHIC (35) ===
+Fizzy Soda | $4975000 | Gen:17250
+Tree Tree Tree Sahur | $4950000 | Gen:17000
+Bananito Bandito | $4900000 | Gen:16500
+Jacko Spaventosa | $4875000 | Gen:16250
+Toiletto Focaccino | $4850000 | Gen:16000
+Centrucci Nuclucci | $4800000 | Gen:15500
+Carrotini Brainini | $4750000 | Gen:15000
+Elefanto Frigo | $4600000 | Gen:14000
+Carloo | $4500000 | Gen:13500
+Spongini Quackini | $4400000 | Gen:13000
+Cachorrito Melonito | $4400000 | Gen:13000
+Los Noobinis | $4350000 | Gen:12500
+Jingle Jingle Sahur | $4300000 | Gen:12250
+Tracoducotulu Delapeladustuz | $4250000 | Gen:12000
+Magi Ribbitini | $4200000 | Gen:11500
+Rhino Helicopterino | $4100000 | Gen:11000
+Te Te Te Sahur | $4000000 | Gen:9500
+Ganganzelli Trulala | $3750000 | Gen:9000
+Lerulerulerule | $3500000 | Gen:8750
+Tob Tobi Tobi | $3250000 | Gen:8500
+Stoppo Luminino | $3000000 | Gen:8000
+Gorillo Watermelondrillo | $3000000 | Gen:8000
+Gorillo Subwoofero | $2750000 | Gen:7750
+Lucky Block | $2500000 | Gen:0
+Cavallo Virtuoso | $2500000 | Gen:7500
+Avocadorilla | $2000000 | Gen:7000
+Tigrilini Watermelini | $1750000 | Gen:6500
+Zibra Zubra Zibralini | $1500000 | Gen:6000
+Bombombini Gusini | $1000000 | Gen:5000
+Spioniro Golubiro | $750000 | Gen:3500
+Brutto Gialutto | $600000 | Gen:3000
+Bombardiro Crocodilo | $500000 | Gen:2500
+Rhino Toasterino | $450000 | Gen:2150
+Orangutini Ananassini | $400000 | Gen:2000
+Frigo Camelo | $350000 | Gen:1900
+=== LEGENDARY (24) ===
+Buho de Fuego | $345000 | Gen:1850
+Sealo Regalo | $342500 | Gen:1825
+Sigma Girl | $340000 | Gen:1800
+Puffaball | $330000 | Gen:1500
+Chocco Bunny | $327500 | Gen:1400
+Sigma Boy | $325000 | Gen:1350
+Signore Carapace | $320000 | Gen:1325
+Pi Pi Watermelon | $315000 | Gen:1300
+Quackula | $310000 | Gen:1275
+Pandaccini Bananini | $300000 | Gen:1250
+Cocosini Mama | $285000 | Gen:1200
+Strawberrelli Flamingelli | $275000 | Gen:1150
+Pipi Potato | $265000 | Gen:1100
+Caramello Filtrello | $255000 | Gen:1050
+Clickerino Crabo | $250000 | Gen:1000
+Blueberrinni Octopusini | $250000 | Gen:1000
+Quivioli Ameleonni | $225000 | Gen:900
+Glorbo Fruttodrillo | $200000 | Gen:750
+Lionel Cactuseli | $175000 | Gen:650
+Chef Crabracadabra | $150000 | Gen:600
+Ballerina Cappuccina | $100000 | Gen:500
+Tirilikalika Tirilikalako | $75000 | Gen:450
+Chimpanzini Bananini | $50000 | Gen:300
+Burbaloni Loliloli | $35000 | Gen:200
+=== EPIC (20) ===
+Mummio Rappitto | $47500 | Gen:325
+Penguino Cocosino | $45000 | Gen:300
+Wombo Rollo | $42500 | Gen:275
+Penguin Tree | $42000 | Gen:270
+Doi Doi Do | $41000 | Gen:260
+Salamino Penguino | $40000 | Gen:250
+Frogato Pirato | $39000 | Gen:240
+Mangolini Parrocini | $38500 | Gen:235
+Ti Ti Ti Sahur | $37500 | Gen:225
+Avocadini Guffo | $35000 | Gen:225
+Brri Brri Bicus Dicus Bombicus | $30000 | Gen:175
+Perochello Lemonchello | $27500 | Gen:160
+Bananita Dolphinita | $25000 | Gen:150
+Malame Amarele | $23500 | Gen:140
+Bambini Crostini | $22500 | Gen:135
+Trulimero Trulicina | $20000 | Gen:125
+Avocadini Antilopini | $17500 | Gen:115
+Brr Brr Patapim | $15000 | Gen:100
+Bandito Axolito | $12500 | Gen:90
+Cappuccino Assassino | $10000 | Gen:75
+=== MYTHIC (35) ===
+Fizzy Soda | $4975000 | Gen:17250
+Tree Tree Tree Sahur | $4950000 | Gen:17000
+Bananito Bandito | $4900000 | Gen:16500
+Jacko Spaventosa | $4875000 | Gen:16250
+Toiletto Focaccino | $4850000 | Gen:16000
+Centrucci Nuclucci | $4800000 | Gen:15500
+Carrotini Brainini | $4750000 | Gen:15000
+Elefanto Frigo | $4600000 | Gen:14000
+Carloo | $4500000 | Gen:13500
+Spongini Quackini | $4400000 | Gen:13000
+Cachorrito Melonito | $4400000 | Gen:13000
+Los Noobinis | $4350000 | Gen:12500
+Jingle Jingle Sahur | $4300000 | Gen:12250
+Tracoducotulu Delapeladustuz | $4250000 | Gen:12000
+Magi Ribbitini | $4200000 | Gen:11500
+Rhino Helicopterino | $4100000 | Gen:11000
+Te Te Te Sahur | $4000000 | Gen:9500
+Ganganzelli Trulala | $3750000 | Gen:9000
+Lerulerulerule | $3500000 | Gen:8750
+Tob Tobi Tobi | $3250000 | Gen:8500
+Stoppo Luminino | $3000000 | Gen:8000
+Gorillo Watermelondrillo | $3000000 | Gen:8000
+Gorillo Subwoofero | $2750000 | Gen:7750
+Lucky Block | $2500000 | Gen:0
+Cavallo Virtuoso | $2500000 | Gen:7500
+Avocadorilla | $2000000 | Gen:7000
+Tigrilini Watermelini | $1750000 | Gen:6500
+Zibra Zubra Zibralini | $1500000 | Gen:6000
+Bombombini Gusini | $1000000 | Gen:5000
+Spioniro Golubiro | $750000 | Gen:3500
+Brutto Gialutto | $600000 | Gen:3000
+Bombardiro Crocodilo | $500000 | Gen:2500
+Rhino Toasterino | $450000 | Gen:2150
+Orangutini Ananassini | $400000 | Gen:2000
+Frigo Camelo | $350000 | Gen:1900
+=== MYTHIC (35) ===
+Fizzy Soda | $4975000 | Gen:17250
+Tree Tree Tree Sahur | $4950000 | Gen:17000
+Bananito Bandito | $4900000 | Gen:16500
+Jacko Spaventosa | $4875000 | Gen:16250
+Toiletto Focaccino | $4850000 | Gen:16000
+Centrucci Nuclucci | $4800000 | Gen:15500
+Carrotini Brainini | $4750000 | Gen:15000
+Elefanto Frigo | $4600000 | Gen:14000
+Carloo | $4500000 | Gen:13500
+Spongini Quackini | $4400000 | Gen:13000
+Cachorrito Melonito | $4400000 | Gen:13000
+Los Noobinis | $4350000 | Gen:12500
+Jingle Jingle Sahur | $4300000 | Gen:12250
+Tracoducotulu Delapeladustuz | $4250000 | Gen:12000
+Magi Ribbitini | $4200000 | Gen:11500
+Rhino Helicopterino | $4100000 | Gen:11000
+Te Te Te Sahur | $4000000 | Gen:9500
+Ganganzelli Trulala | $3750000 | Gen:9000
+Lerulerulerule | $3500000 | Gen:8750
+Tob Tobi Tobi | $3250000 | Gen:8500
+Stoppo Luminino | $3000000 | Gen:8000
+Gorillo Watermelondrillo | $3000000 | Gen:8000
+Gorillo Subwoofero | $2750000 | Gen:7750
+Lucky Block | $2500000 | Gen:0
+Cavallo Virtuoso | $2500000 | Gen:7500
+Avocadorilla | $2000000 | Gen:7000
+Tigrilini Watermelini | $1750000 | Gen:6500
+Zibra Zubra Zibralini | $1500000 | Gen:6000
+Bombombini Gusini | $1000000 | Gen:5000
+Spioniro Golubiro | $750000 | Gen:3500
+Brutto Gialutto | $600000 | Gen:3000
+Bombardiro Crocodilo | $500000 | Gen:2500
+Rhino Toasterino | $450000 | Gen:2150
+Orangutini Ananassini | $400000 | Gen:2000
+Frigo Camelo | $350000 | Gen:1900
+=== RARE (11) ===
+Pinealotto Fruttarino | $9750 | Gen:75
+Pipi Avocado | $9500 | Gen:70
+Frogo Elfo | $9250 | Gen:67
+Tric Trac Baraboom | $9000 | Gen:65
+Cupcake Koala | $8000 | Gen:60
+Ta Ta Ta Ta Sahur | $7500 | Gen:55
+Cacto Hipopotamo | $6500 | Gen:50
+Boneca Ambalabu | $5000 | Gen:40
+Bandito Bobritto | $4500 | Gen:35
+Gangster Footera | $4000 | Gen:30
+Trippi Troppi | $2000 | Gen:15
+=== LEGENDARY (24) ===
+Buho de Fuego | $345000 | Gen:1850
+Sealo Regalo | $342500 | Gen:1825
+Sigma Girl | $340000 | Gen:1800
+Puffaball | $330000 | Gen:1500
+Chocco Bunny | $327500 | Gen:1400
+Sigma Boy | $325000 | Gen:1350
+Signore Carapace | $320000 | Gen:1325
+Pi Pi Watermelon | $315000 | Gen:1300
+Quackula | $310000 | Gen:1275
+Pandaccini Bananini | $300000 | Gen:1250
+Cocosini Mama | $285000 | Gen:1200
+Strawberrelli Flamingelli | $275000 | Gen:1150
+Pipi Potato | $265000 | Gen:1100
+Caramello Filtrello | $255000 | Gen:1050
+Clickerino Crabo | $250000 | Gen:1000
+Blueberrinni Octopusini | $250000 | Gen:1000
+Quivioli Ameleonni | $225000 | Gen:900
+Glorbo Fruttodrillo | $200000 | Gen:750
+Lionel Cactuseli | $175000 | Gen:650
+Chef Crabracadabra | $150000 | Gen:600
+Ballerina Cappuccina | $100000 | Gen:500
+Tirilikalika Tirilikalako | $75000 | Gen:450
+Chimpanzini Bananini | $50000 | Gen:300
+Burbaloni Loliloli | $35000 | Gen:200
+=== LEGENDARY (24) ===
+Buho de Fuego | $345000 | Gen:1850
+Sealo Regalo | $342500 | Gen:1825
+Sigma Girl | $340000 | Gen:1800
+Puffaball | $330000 | Gen:1500
+Chocco Bunny | $327500 | Gen:1400
+Sigma Boy | $325000 | Gen:1350
+Signore Carapace | $320000 | Gen:1325
+Pi Pi Watermelon | $315000 | Gen:1300
+Quackula | $310000 | Gen:1275
+Pandaccini Bananini | $300000 | Gen:1250
+Cocosini Mama | $285000 | Gen:1200
+Strawberrelli Flamingelli | $275000 | Gen:1150
+Pipi Potato | $265000 | Gen:1100
+Caramello Filtrello | $255000 | Gen:1050
+Clickerino Crabo | $250000 | Gen:1000
+Blueberrinni Octopusini | $250000 | Gen:1000
+Quivioli Ameleonni | $225000 | Gen:900
+Glorbo Fruttodrillo | $200000 | Gen:750
+Lionel Cactuseli | $175000 | Gen:650
+Chef Crabracadabra | $150000 | Gen:600
+Ballerina Cappuccina | $100000 | Gen:500
+Tirilikalika Tirilikalako | $75000 | Gen:450
+Chimpanzini Bananini | $50000 | Gen:300
+Burbaloni Loliloli | $35000 | Gen:200
+=== COMMON (11) ===
+Pipi Corni | $1750 | Gen:14
+Pipi Kiwi | $1500 | Gen:13
+Tartaragno | $1500 | Gen:13
+Raccooni Jandelini | $1350 | Gen:12
+Noobini Santanini | $1300 | Gen:11
+Svinina Bombardino | $1250 | Gen:10
+Talpa Di Fero | $1000 | Gen:9
+Fluriflura | $750 | Gen:7
+Tim Cheese | $500 | Gen:5
+Lirilì Larilà | $250 | Gen:3
+Noobini Pizzanini | $25 | Gen:1
+=== EPIC (20) ===
+Mummio Rappitto | $47500 | Gen:325
+Penguino Cocosino | $45000 | Gen:300
+Wombo Rollo | $42500 | Gen:275
+Penguin Tree | $42000 | Gen:270
+Doi Doi Do | $41000 | Gen:260
+Salamino Penguino | $40000 | Gen:250
+Frogato Pirato | $39000 | Gen:240
+Mangolini Parrocini | $38500 | Gen:235
+Ti Ti Ti Sahur | $37500 | Gen:225
+Avocadini Guffo | $35000 | Gen:225
+Brri Brri Bicus Dicus Bombicus | $30000 | Gen:175
+Perochello Lemonchello | $27500 | Gen:160
+Bananita Dolphinita | $25000 | Gen:150
+Malame Amarele | $23500 | Gen:140
+Bambini Crostini | $22500 | Gen:135
+Trulimero Trulicina | $20000 | Gen:125
+Avocadini Antilopini | $17500 | Gen:115
+Brr Brr Patapim | $15000 | Gen:100
+Bandito Axolito | $12500 | Gen:90
+Cappuccino Assassino | $10000 | Gen:75
+=== EPIC (20) ===
+Mummio Rappitto | $47500 | Gen:325
+Penguino Cocosino | $45000 | Gen:300
+Wombo Rollo | $42500 | Gen:275
+Penguin Tree | $42000 | Gen:270
+Doi Doi Do | $41000 | Gen:260
+Salamino Penguino | $40000 | Gen:250
+Frogato Pirato | $39000 | Gen:240
+Mangolini Parrocini | $38500 | Gen:235
+Ti Ti Ti Sahur | $37500 | Gen:225
+Avocadini Guffo | $35000 | Gen:225
+Brri Brri Bicus Dicus Bombicus | $30000 | Gen:175
+Perochello Lemonchello | $27500 | Gen:160
+Bananita Dolphinita | $25000 | Gen:150
+Malame Amarele | $23500 | Gen:140
+Bambini Crostini | $22500 | Gen:135
+Trulimero Trulicina | $20000 | Gen:125
+Avocadini Antilopini | $17500 | Gen:115
+Brr Brr Patapim | $15000 | Gen:100
+Bandito Axolito | $12500 | Gen:90
+Cappuccino Assassino | $10000 | Gen:75
+=== OG (3) ===
+Meowl | $500000000000
+Strawberry Elephant | $750000000000
+Skibidi Toilet | $400000000000
+=== RARE (11) ===
+Pinealotto Fruttarino | $9750 | Gen:75
+Pipi Avocado | $9500 | Gen:70
+Frogo Elfo | $9250 | Gen:67
+Tric Trac Baraboom | $9000 | Gen:65
+Cupcake Koala | $8000 | Gen:60
+Ta Ta Ta Ta Sahur | $7500 | Gen:55
+Cacto Hipopotamo | $6500 | Gen:50
+Boneca Ambalabu | $5000 | Gen:40
+Bandito Bobritto | $4500 | Gen:35
+Gangster Footera | $4000 | Gen:30
+Trippi Troppi | $2000 | Gen:15
+=== RARE (11) ===
+Pinealotto Fruttarino | $9750 | Gen:75
+Pipi Avocado | $9500 | Gen:70
+Frogo Elfo | $9250 | Gen:67
+Tric Trac Baraboom | $9000 | Gen:65
+Cupcake Koala | $8000 | Gen:60
+Ta Ta Ta Ta Sahur | $7500 | Gen:55
+Cacto Hipopotamo | $6500 | Gen:50
+Boneca Ambalabu | $5000 | Gen:40
+Bandito Bobritto | $4500 | Gen:35
+Gangster Footera | $4000 | Gen:30
+Trippi Troppi | $2000 | Gen:15
+=== COMMON (11) ===
+Pipi Corni | $1750 | Gen:14
+Pipi Kiwi | $1500 | Gen:13
+Tartaragno | $1500 | Gen:13
+Raccooni Jandelini | $1350 | Gen:12
+Noobini Santanini | $1300 | Gen:11
+Svinina Bombardino | $1250 | Gen:10
+Talpa Di Fero | $1000 | Gen:9
+Fluriflura | $750 | Gen:7
+Tim Cheese | $500 | Gen:5
+Lirilì Larilà | $250 | Gen:3
+Noobini Pizzanini | $25 | Gen:1
+=== TACO (2) ===
+Los Taco Blocks | $300000000
+Lucky Block | $50000000
+=== MYTHIC (35) ===
+Fizzy Soda | $4975000 | Gen:17250
+Tree Tree Tree Sahur | $4950000 | Gen:17000
+Bananito Bandito | $4900000 | Gen:16500
+Jacko Spaventosa | $4875000 | Gen:16250
+Toiletto Focaccino | $4850000 | Gen:16000
+Centrucci Nuclucci | $4800000 | Gen:15500
+Carrotini Brainini | $4750000 | Gen:15000
+Elefanto Frigo | $4600000 | Gen:14000
+Carloo | $4500000 | Gen:13500
+Spongini Quackini | $4400000 | Gen:13000
+Cachorrito Melonito | $4400000 | Gen:13000
+Los Noobinis | $4350000 | Gen:12500
+Jingle Jingle Sahur | $4300000 | Gen:12250
+Tracoducotulu Delapeladustuz | $4250000 | Gen:12000
+Magi Ribbitini | $4200000 | Gen:11500
+Rhino Helicopterino | $4100000 | Gen:11000
+Te Te Te Sahur | $4000000 | Gen:9500
+Ganganzelli Trulala | $3750000 | Gen:9000
+Lerulerulerule | $3500000 | Gen:8750
+Tob Tobi Tobi | $3250000 | Gen:8500
+Stoppo Luminino | $3000000 | Gen:8000
+Gorillo Watermelondrillo | $3000000 | Gen:8000
+Gorillo Subwoofero | $2750000 | Gen:7750
+Lucky Block | $2500000 | Gen:0
+Cavallo Virtuoso | $2500000 | Gen:7500
+Avocadorilla | $2000000 | Gen:7000
+Tigrilini Watermelini | $1750000 | Gen:6500
+Zibra Zubra Zibralini | $1500000 | Gen:6000
+Bombombini Gusini | $1000000 | Gen:5000
+Spioniro Golubiro | $750000 | Gen:3500
+Brutto Gialutto | $600000 | Gen:3000
+Bombardiro Crocodilo | $500000 | Gen:2500
+Rhino Toasterino | $450000 | Gen:2150
+Orangutini Ananassini | $400000 | Gen:2000
+Frigo Camelo | $350000 | Gen:1900
+=== COMMON (11) ===
+Pipi Corni | $1750 | Gen:14
+Pipi Kiwi | $1500 | Gen:13
+Tartaragno | $1500 | Gen:13
+Raccooni Jandelini | $1350 | Gen:12
+Noobini Santanini | $1300 | Gen:11
+Svinina Bombardino | $1250 | Gen:10
+Talpa Di Fero | $1000 | Gen:9
+Fluriflura | $750 | Gen:7
+Tim Cheese | $500 | Gen:5
+Lirilì Larilà | $250 | Gen:3
+Noobini Pizzanini | $25 | Gen:1
+=== OG (3) ===
+Meowl | $500000000000
+Strawberry Elephant | $750000000000
+Skibidi Toilet | $400000000000
+=== SPOOKY (1) ===
+Spooky Lucky Block | $350000000
+=== LEGENDARY (24) ===
+Buho de Fuego | $345000 | Gen:1850
+Sealo Regalo | $342500 | Gen:1825
+Sigma Girl | $340000 | Gen:1800
+Puffaball | $330000 | Gen:1500
+Chocco Bunny | $327500 | Gen:1400
+Sigma Boy | $325000 | Gen:1350
+Signore Carapace | $320000 | Gen:1325
+Pi Pi Watermelon | $315000 | Gen:1300
+Quackula | $310000 | Gen:1275
+Pandaccini Bananini | $300000 | Gen:1250
+Cocosini Mama | $285000 | Gen:1200
+Strawberrelli Flamingelli | $275000 | Gen:1150
+Pipi Potato | $265000 | Gen:1100
+Caramello Filtrello | $255000 | Gen:1050
+Clickerino Crabo | $250000 | Gen:1000
+Blueberrinni Octopusini | $250000 | Gen:1000
+Quivioli Ameleonni | $225000 | Gen:900
+Glorbo Fruttodrillo | $200000 | Gen:750
+Lionel Cactuseli | $175000 | Gen:650
+Chef Crabracadabra | $150000 | Gen:600
+Ballerina Cappuccina | $100000 | Gen:500
+Tirilikalika Tirilikalako | $75000 | Gen:450
+Chimpanzini Bananini | $50000 | Gen:300
+Burbaloni Loliloli | $35000 | Gen:200
+=== OG (3) ===
+Meowl | $500000000000
+Strawberry Elephant | $750000000000
+Skibidi Toilet | $400000000000
+=== TACO (2) ===
+Los Taco Blocks | $300000000
+Lucky Block | $50000000
+=== ADMIN (2) ===
+Los Lucky Blocks | $250000000
+Lucky Block | $100000000
+=== EPIC (20) ===
+Mummio Rappitto | $47500 | Gen:325
+Penguino Cocosino | $45000 | Gen:300
+Wombo Rollo | $42500 | Gen:275
+Penguin Tree | $42000 | Gen:270
+Doi Doi Do | $41000 | Gen:260
+Salamino Penguino | $40000 | Gen:250
+Frogato Pirato | $39000 | Gen:240
+Mangolini Parrocini | $38500 | Gen:235
+Ti Ti Ti Sahur | $37500 | Gen:225
+Avocadini Guffo | $35000 | Gen:225
+Brri Brri Bicus Dicus Bombicus | $30000 | Gen:175
+Perochello Lemonchello | $27500 | Gen:160
+Bananita Dolphinita | $25000 | Gen:150
+Malame Amarele | $23500 | Gen:140
+Bambini Crostini | $22500 | Gen:135
+Trulimero Trulicina | $20000 | Gen:125
+Avocadini Antilopini | $17500 | Gen:115
+Brr Brr Patapim | $15000 | Gen:100
+Bandito Axolito | $12500 | Gen:90
+Cappuccino Assassino | $10000 | Gen:75
+=== TACO (2) ===
+Los Taco Blocks | $300000000
+Lucky Block | $50000000
+=== SPOOKY (1) ===
+Spooky Lucky Block | $350000000
+=== FESTIVE (2) ===
+Premium Festive Lucky Block | $400000000
+Festive Lucky Block | $400000000
+=== RARE (11) ===
+Pinealotto Fruttarino | $9750 | Gen:75
+Pipi Avocado | $9500 | Gen:70
+Frogo Elfo | $9250 | Gen:67
+Tric Trac Baraboom | $9000 | Gen:65
+Cupcake Koala | $8000 | Gen:60
+Ta Ta Ta Ta Sahur | $7500 | Gen:55
+Cacto Hipopotamo | $6500 | Gen:50
+Boneca Ambalabu | $5000 | Gen:40
+Bandito Bobritto | $4500 | Gen:35
+Gangster Footera | $4000 | Gen:30
+Trippi Troppi | $2000 | Gen:15
+=== SPOOKY (1) ===
+Spooky Lucky Block | $350000000
+=== ADMIN (2) ===
+Los Lucky Blocks | $250000000
+Lucky Block | $100000000
+DUMP COMPLETE!
+=== COMMON (11) ===
+Pipi Corni | $1750 | Gen:14
+Pipi Kiwi | $1500 | Gen:13
+Tartaragno | $1500 | Gen:13
+Raccooni Jandelini | $1350 | Gen:12
+Noobini Santanini | $1300 | Gen:11
+Svinina Bombardino | $1250 | Gen:10
+Talpa Di Fero | $1000 | Gen:9
+Fluriflura | $750 | Gen:7
+Tim Cheese | $500 | Gen:5
+Lirilì Larilà | $250 | Gen:3
+Noobini Pizzanini | $25 | Gen:1
+=== ADMIN (2) ===
+Los Lucky Blocks | $250000000
+Lucky Block | $100000000
+=== FESTIVE (2) ===
+Premium Festive Lucky Block | $400000000
+Festive Lucky Block | $400000000
+=== OG (3) ===
+Meowl | $500000000000
+Strawberry Elephant | $750000000000
+Skibidi Toilet | $400000000000
+=== FESTIVE (2) ===
+Premium Festive Lucky Block | $400000000
+Festive Lucky Block | $400000000
+DUMP COMPLETE!
+=== TACO (2) ===
+Los Taco Blocks | $300000000
+Lucky Block | $50000000
+DUMP COMPLETE!
+=== SPOOKY (1) ===
+Spooky Lucky Block | $350000000
+=== ADMIN (2) ===
+Los Lucky Blocks | $250000000
+Lucky Block | $100000000
+=== FESTIVE (2) ===
+Premium Festive Lucky Block | $400000000
+Festive Lucky Block | $400000000
+DUMP COMPLETE!
+
+
+Brainrot Dumper V3
+APP
+ — 19.42
+🔴 STARTING SECRET DUMP...
+=== SECRET (156 ITEMS) ===
+Hydra Dragon Cannelloni | $350000000000
+Headless Horseman | $325000000000
+Dragon Gingerini | $300000000000
+Dragon Cannelloni | $250000000000
+La Supreme Combinasion | $200000000000
+Cerberus | $150000000000
+Capitano Moby | $125000000000
+Cooki and Milki | $100000000000
+Burguro And Fryuro | $75000000000
+Ketupat Bros | $65000000000
+Reinito Sleighito | $60000000000
+La Secret Combinasion | $50000000000
+La Casa Boo | $40000000000
+Fragrama and Chocrama | $40000000000
+Spooky and Pumpky | $25000000000
+La Ginger Sekolah | $23000000000
+Ginger Gerat | $22500000000
+Los Spaghettis | $20000000000
+Festive 67 | $16000000000
+Spaghetti Tualetti | $15000000000
+Garama and Madundung | $10000000000
+Jolly Jolly Sahur | $8000000000
+Lavadorito Spinito | $8000000000
+Ketchuru and Musturu | $7500000000
+Swaggy Bros | $7000000000
+Orcaledon | $7000000000
+Tictac Sahur | $6000000000
+Ketupat Kepat | $5000000000
+La Taco Combinasion | $5000000000
+Tang Tang Keletang | $4500000000
+Los Tacoritas | $4000000000
+Bacuru and Egguru | $3850000000
+Eviledon | $3850000000
+Los Primos | $3750000000
+La Jolly Grande | $3500000000
+Esok Sekolah | $3500000000
+La Extinct Grande | $3250000000
+Los Candies | $3000000000
+Los Jolly Combinasionas | $3000000000
+Tralaledon | $3000000000
+W or L | $3000000000
+Los Spooky Combinasionas | $3000000000
+Los Puggies | $3000000000
+Los Hotspotsitos | $3000000000
+La Spooky Grande | $2900000000
+Gobblino Uniciclino | $2850000000
+Tuff Toucan | $2750000000
+Los 67 | $2750000000
+Celularcini Viciosini | $2750000000
+Mieteteira Bicicleteira | $2750000000
+Los Planitos | $2750000000
+Los Mobilis | $2700000000
+Los Bros | $2600000000
+Money Money Puggy | $2600000000
+Money Money Reindeer | $2500000000
+Las Sis | $2500000000
+Chillin Chili | $2500000000
+Nuclearo Dinossauro | $2500000000
+Chipso and Queso | $2500000000
+Spinny Hammy | $2300000000
+Tacorita Bicicleta | $2250000000
+Fishino Clownino | $2100000000
+Los Combinasionas | $2000000000
+Chicleteira Noelteira | $2000000000
+Chimnino | $1900000000
+Swag Soda | $1800000000
+Mariachi Corazoni | $1750000000
+Los 25 | $1500000000
+Los Burritos | $1400000000
+67 | $1250000000
+Donkeyturbo Express | $1250000000
+Los Chicleteiras | $1200000000
+Guest 666 | $1166666666
+Rang Ring Bus | $1100000000
+Noo my Present | $1100000000
+Los Nooo My Hotspotsitos | $1000000000
+La Grande Combinasion | $1000000000
+Arcadopus | $900000000
+Noo my Candy | $900000000
+Bunito Bunito Spinito | $900000000
+Los Quesadillas | $875000000
+Chill Puppy | $850000000
+Burrito Bandito | $850000000
+Chicleteirina Bicicleteirina | $850000000
+Quesadillo Vampiro | $750000000
+Chicleteira Bicicleteira | $750000000
+Brunito Marsito | $750000000
+Lucky Block | $750000000
+Ho Ho Ho Sahur | $725000000
+Pot Pumpkin | $700000000
+Naughty Naughty | $700000000
+Quesadilla Crocodila | $700000000
+Horegini Boom | $650000000
+Santa Hotspot | $625000000
+Pirulitoita Bicicleteira | $600000000
+Pot Hotspot | $600000000
+25 | $600000000
+To to to Sahur | $575000000
+Telemorte | $550000000
+La Sahur Combinasion | $550000000
+List List List Sahur | $550000000
+Noo my examine | $525000000
+Los Jobcitos | $500000000
+Nooo My Hotspot | $500000000
+Coffin Tung Tung Tung Sahur | $500000000
+Tung Tung Tung Sahur | $500000000
+Bunnyman | $500000000
+Cuadramat and Pakrahmatmamat | $400000000
+Please my Present | $350000000
+Los Cucarachas | $300000000
+1x1x1x1 | $255555555
+Graipuss Medussi | $250000000
+Perrito Burrito | $250000000
+Giftini Spyderini | $240000000
+GOAT | $237500000
+Trickolino | $235000000
+Triplito Tralaleritos | $230000000
+La Vacca Jacko Linterino | $225000000
+Santteo | $210000000
+Las Vaquitas Saturnitas | $200000000
+Los Karkeritos | $200000000
+Karker Sahur | $185000000
+Frankentteo | $175000000
+Los Trios | $175000000
+Job Job Job Sahur | $175000000
+Pumpkini Spyderini | $165000000
+La Karkerkar Combinasion | $160000000
+La Vacca Prese Presente | $160000000
+Reindeer Tralala | $160000000
+Las Tralaleritas | $150000000
+Rocco Disco | $150000000
+Dul Dul Dul | $150000000
+Extinct Matteo | $140000000
+Yess my examine | $130000000
+Fragola La La La | $125000000
+Torrtuginni Dragonfrutini | $125000000
+Los Spyderinis | $125000000
+Extinct Tralalero | $125000000
+Guerriro Digitale | $120000000
+Boatito Auratito | $115000000
+Vulturino Skeletono | $110000000
+La Cucaracha | $110000000
+Trenostruzzo Turbo 4000 | $100000000
+Los Tralaleritos | $100000000
+Los Matteos | $100000000
+Los Tortus | $100000000
+Karkerkar Kurkur | $100000000
+Zombie Tralala | $100000000
+Chachechi | $85000000
+Agarrini la Palini | $80000000
+Jackorilla | $80000000
+Bisonte Giuppitere | $75000000
+Blackhole Goat | $75000000
+Sammyni Spyderini | $75000000
+La Vacca Saturno Saturnita | $50000000
+Gold Elf | $0
+✅ SECRET DUMP COMPLETE!
+
+
+Brainrot Dumper
+APP
+ — Yesterday at 19.29
+=== OG (3) ===
+Strawberry Elephant | $750000000000
+Meowl | $500000000000
+Skibidi Toilet | $400000000000
+ 
