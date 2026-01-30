@@ -14,7 +14,7 @@ local LP,SC,IG=Vector3.new(),0,{}
 local function gR(n) for k,d in pairs(AnimalsData) do if type(d)=="table" and (n:find(k) or n:find(d.DisplayName or "")) then return d.Rarity,RV[d.Rarity] or 0 end end return "?",0 end
 spawn(function() while wait(0.1) do if ON then pcall(function()
 local C=L.Character;if not C then return end;local H,R=C:FindFirstChild("Humanoid"),C:FindFirstChild("HumanoidRootPart");if not H or not R then return end
-if tick()-lastAFK>AFKi then H.Jump=true;pcall(function() if Ping then Ping:FireServer(math.random(400,600),tick()) end end);lastAFK=tick();AFKi=math.random(30,60) end
+if tick()-lastAFK>AFKi then H.Jump=true;pcall(function() if Ping then Ping:FireServer(math.random(400,600),tick()) end end);V:SendKeyEvent(true,Enum.KeyCode.W,false,game);wait(0.1+math.random()*0.1);V:SendKeyEvent(false,Enum.KeyCode.W,false,game);local cam=workspace.CurrentCamera;if cam then cam.CFrame=cam.CFrame*CFrame.Angles(0,math.rad(math.random(-10,10)),0) end;lastAFK=tick();AFKi=math.random(20,45) end
 local BX=workspace:FindFirstChild("RenderedMovingAnimals");if not BX then return end;local BT,BP,BD,BR,BN,BRN=nil,nil,999,0,"",""
 for m,t in pairs(IG) do if tick()-t>10 then IG[m]=nil end end
 for _,v in pairs(BX:GetChildren()) do if v:IsA("Model") and not IG[v] then local rn,rv=gR(v.Name);if rv>=MIN then local Pos=v.PrimaryPart and v.PrimaryPart.Position or v:FindFirstChild("RootPart") and v.RootPart.Position;if Pos then local D=(R.Position-Pos).Magnitude;if rv>BR or (rv==BR and D<BD) then BD=D;BR=rv;BT=v;BP=Pos;BN=v.Name;BRN=rn end end end end end
