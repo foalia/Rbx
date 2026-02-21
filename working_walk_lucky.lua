@@ -1,0 +1,22 @@
+local P,V,FS,RS=game:GetService("Players"),game:GetService("VirtualInputManager"),game:GetService("PathfindingService"),game:GetService("ReplicatedStorage")
+local L,G,ON=P.LocalPlayer,P.LocalPlayer:WaitForChild("PlayerGui"),true
+local lastAFK,AFKi=tick(),math.random(30,60)
+local Ping;pcall(function() Ping=RS:WaitForChild("UserGenerated",2):WaitForChild("Analytics",2):WaitForChild("ClientKit",2):WaitForChild("Ping",2) end)
+pcall(function() if G:FindFirstChild("LB") then G.LB:Destroy() end end)
+local S,F,B,TL=Instance.new("ScreenGui"),Instance.new("Frame"),Instance.new("TextButton"),Instance.new("TextLabel")
+S.Name="LB";S.Parent=G;F.Parent=S;F.Size=UDim2.new(0,150,0,50);F.Position=UDim2.new(0,50,0.5,0);F.Active=true;F.Draggable=true;F.BackgroundColor3=Color3.fromRGB(180,120,0)
+B.Parent=F;B.Size=UDim2.new(1,-10,0,30);B.Position=UDim2.new(0,5,0,5);B.Text="LUCKY: ON";B.BackgroundColor3=Color3.fromRGB(255,180,0);B.TextColor3=Color3.new(1,1,1)
+TL.Parent=F;TL.Size=UDim2.new(1,-10,0,12);TL.Position=UDim2.new(0,5,0,36);TL.Text="OK";TL.TextColor3=Color3.new(1,1,1);TL.BackgroundTransparency=1;TL.TextSize=10
+B.MouseButton1Click:Connect(function() ON=not ON;B.Text=ON and "LUCKY: ON" or "OFF";B.BackgroundColor3=ON and Color3.fromRGB(255,180,0) or Color3.new(0.5,0,0) end)
+local LP,SC,IG=Vector3.new(),0,{}
+local function isLucky(n) local nl=n:lower();return nl:find("taco") or nl:find("lucky") end
+spawn(function() while wait(0.1) do if ON then pcall(function()
+local C=L.Character;if not C then return end;local H,R=C:FindFirstChild("Humanoid"),C:FindFirstChild("HumanoidRootPart");if not H or not R then return end
+if tick()-lastAFK>AFKi then H.Jump=true;pcall(function() if Ping then Ping:FireServer(math.random(400,600),tick()) end end);V:SendKeyEvent(true,Enum.KeyCode.W,false,game);wait(0.1+math.random()*0.1);V:SendKeyEvent(false,Enum.KeyCode.W,false,game);local cam=workspace.CurrentCamera;if cam then cam.CFrame=cam.CFrame*CFrame.Angles(0,math.rad(math.random(-10,10)),0) end;lastAFK=tick();AFKi=math.random(20,45) end
+local BX=workspace:FindFirstChild("RenderedMovingAnimals");if not BX then return end;local BT,BP,BD,BN=nil,nil,999,""
+for m,t in pairs(IG) do if tick()-t>10 then IG[m]=nil end end
+for _,v in pairs(BX:GetChildren()) do if v:IsA("Model") and not IG[v] and isLucky(v.Name) then local Pos=v.PrimaryPart and v.PrimaryPart.Position or v:FindFirstChild("RootPart") and v.RootPart.Position;if Pos then local D=(R.Position-Pos).Magnitude;if D<BD then BD=D;BT=v;BP=Pos;BN=v.Name end end end end
+if BP then TL.Text="[LB]"..BN:sub(1,8);local MV=(R.Position-LP).Magnitude;LP=R.Position;if MV<0.2 then SC=SC+1 else SC=0 end
+if SC>8 then H.Jump=true;H:MoveTo(R.Position+R.CFrame.RightVector*math.random(-10,10));SC=0;wait(0.3);return else H:MoveTo(BP) end
+if BD<5 then TL.Text="BUY!!";V:SendKeyEvent(true,Enum.KeyCode.E,false,game);V:SendKeyEvent(false,Enum.KeyCode.E,false,game);V:SendKeyEvent(true,Enum.KeyCode.E,false,game);V:SendKeyEvent(false,Enum.KeyCode.E,false,game);V:SendKeyEvent(true,Enum.KeyCode.E,false,game);V:SendKeyEvent(false,Enum.KeyCode.E,false,game);IG[BT]=tick();if not BT or not BT.Parent then TL.Text="GOT!" else TL.Text="MISS" end;return end
+else TL.Text="..." end end) end end end)
