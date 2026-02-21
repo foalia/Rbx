@@ -9,7 +9,7 @@ B.Parent=F;B.Size=UDim2.new(1,-10,0,30);B.Position=UDim2.new(0,5,0,5);B.Text="LU
 TL.Parent=F;TL.Size=UDim2.new(1,-10,0,12);TL.Position=UDim2.new(0,5,0,36);TL.Text="OK";TL.TextColor3=Color3.new(1,1,1);TL.BackgroundTransparency=1;TL.TextSize=10
 B.MouseButton1Click:Connect(function() ON=not ON;B.Text=ON and "LUCKY: ON" or "OFF";B.BackgroundColor3=ON and Color3.fromRGB(255,180,0) or Color3.new(0.5,0,0) end)
 local LP,SC,IG=Vector3.new(),0,{}
-local function isLucky(n) local nl=n:lower();return nl:find("taco") or nl:find("lucky") end
+local function isLucky(n) local nl=n:lower();return nl:find("taco") or nl:find("lucky") or nl:find("heart") or nl:find("valentine") end
 spawn(function() while wait(0.1) do if ON then pcall(function()
 local C=L.Character;if not C then return end;local H,R=C:FindFirstChild("Humanoid"),C:FindFirstChild("HumanoidRootPart");if not H or not R then return end
 if tick()-lastAFK>AFKi then H.Jump=true;pcall(function() if Ping then Ping:FireServer(math.random(400,600),tick()) end end);V:SendKeyEvent(true,Enum.KeyCode.W,false,game);wait(0.1+math.random()*0.1);V:SendKeyEvent(false,Enum.KeyCode.W,false,game);local cam=workspace.CurrentCamera;if cam then cam.CFrame=cam.CFrame*CFrame.Angles(0,math.rad(math.random(-10,10)),0) end;lastAFK=tick();AFKi=math.random(20,45) end
